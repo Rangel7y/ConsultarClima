@@ -1,0 +1,16 @@
+
+/* IMPORT _COLORS.SCSS */
+@use 'components/utils/colors';
+
+/* IMPORT _BODY.SCSS */
+@use 'components/core/body';
+
+/* IMPORT _HEADER-CTN */
+@use 'components/header-ctn';
+
+/* IMPORT _MAIN-CTN.SCSS */
+@use 'components/core/main-ctn';
+
+/* IMPORT _WEATHER-DESC */
+@use 'components/weather-desc';
+

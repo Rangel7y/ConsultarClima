@@ -1,0 +1,77 @@
+/* IMPORT _COLORS.SCSS */
+/* COLORS */
+:root {
+  --SatinDeepBlack:#1D1D1F;
+  --AntiqueTin: #6E6E73;
+  --White: #FFFFFF;
+  --Solitude: #F5F5F7;
+  --BrilliantAzure: #2997FF;
+}
+
+/* IMPORT _BODY.SCSS */
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* IMPORT _HEADER-CTN */
+/* HEADER-CONTAINER */
+#header-ctn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  background-color: var(--SatinDeepBlack);
+}
+
+#logo-ctn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
+#logo-ctn p {
+  color: var(--BrilliantAzure);
+  font: 1.1rem;
+  font-weight: 700;
+}
+
+/* LOGO-ICON */
+#logo {
+  width: 32px;
+  height: 32px;
+  /* margin-left: 10px; */
+  color: var(--White);
+}
+
+/* IMPORT _MAIN-CTN.SCSS */
+/* MAIN-CONTAINER */
+/* #main-ctn{
+    display: flex;
+    align-items: center;
+} */
+/* IMPORT _WEATHER-DESC */
+/*  */
+#weather-desc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+#weather-desc p {
+  text-align: center;
+}
+#weather-desc img {
+  width: 400px;
+  height: -moz-fit-content;
+  height: fit-content;
+}/*# sourceMappingURL=styles.css.map */

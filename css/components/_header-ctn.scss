@@ -1,0 +1,38 @@
+
+/* HEADER-CONTAINER */
+#header-ctn{
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 60px;
+
+    top: 0;
+
+    background-color: var(--SatinDeepBlack);
+}
+
+#logo-ctn{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 10px;
+
+    p{
+        color: var(--BrilliantAzure);
+
+        font: 1.1rem;
+        font-weight: 700;
+    }
+}
+
+/* LOGO-ICON */
+#logo{
+    width: 32px;
+    height: 32px;
+
+    /* margin-left: 10px; */
+
+    color: var(--White);
+}

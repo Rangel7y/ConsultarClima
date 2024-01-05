@@ -1,0 +1,19 @@
+
+/*  */
+#weather-desc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 50px;
+
+    p{
+        text-align: center;
+    }
+
+    img{
+        width: 400px;
+        height: fit-content;
+    }
+}
