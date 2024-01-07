@@ -1,6 +1,9 @@
 
 /* MAIN-CONTAINER */
-/* #main-ctn{
+#main-ctn{
     display: flex;
     align-items: center;
-} */
+    flex-direction: column;
+
+    gap: 10px;
+}
