@@ -10,31 +10,33 @@
 
     top: 0;
 
-    background-color: var(--SatinDeepBlack);
+    background-color: var(--Navy);
+
+    a{
+        margin: 10px 20px;
+
+        text-decoration: none;
+
+        color: var(--Solitude);
+
+        font-size: 0.95rem;
+    }
 }
 
 /* LOGO-CONTAINER */
 #logo-ctn{
     display: flex;
     align-items: center;
-    flex-direction: column;
 
-    margin: 10px;
+    margin: 10px 20px;
+    gap: 5px;
 
-    p{
-        color: var(--BrilliantAzure);
+    h1{
+        color: var(--Solitude);
 
-        font: 1.1rem;
-        font-weight: 700;
+        text-shadow: #558ABB 1px 0 10px;
+
+        font-size: 0.85rem;
+        font-weight: 400;
     }
-}
-
-/* LOGO-ICON */
-#logo{
-    width: 32px;
-    height: 32px;
-
-    /* margin-left: 10px; */
-
-    color: var(--White);
 }
