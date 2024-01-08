@@ -1,9 +1,11 @@
 
-/*  */
+/* SEC-FORM-CONTAINER */
 #sec-form-ctn{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin-top: 20px;
 
     form{
         display: flex;
@@ -16,15 +18,72 @@
 
         p{
             text-align: center;
+            font-size: 1rem;
+
+            color: var(--Navy);
         }
     }
 }
 
-/*  */
-#inp-search-city{
-    border: 1px solid black;
+/* INPUT-SEARCH-CITY */
+#inp-name-city{
+    width: 250px;
+    height: 45px;
+
+    padding: 0.85rem;
+    
+    outline: none;
+
+    border: 2px solid var(--SmoothNavy);
     border-radius: 5px;
 
-    width: 250px;
+    background-color: var(--Cold);
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 8px 16px;
+
+    color: var(--Navy);
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    &::placeholder{
+        color: var(--Navy);
+        opacity: 0.7;
+    }
+
+    &:focus{
+        border: 2px solid var(--Navy);
+    }
 }
 
+/* BUTTON-FORM-SEARCH */
+#btn-form-search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 250px;
+    height: 40px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: var(--Navy);
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 8px 16px;
+}
+
+/* BUTTON-FORM-SEARCH (WHEN DISABLED) */
+#btn-form-search:disabled{
+    background-color: var(--SmoothNavy);
+    opacity: 0.8;
+}
+
+@keyframes spinIcon {
+    from{
+        transform: rotate(0deg);    
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
