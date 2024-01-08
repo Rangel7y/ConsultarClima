@@ -6,7 +6,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/styles.css">
 
@@ -23,16 +23,47 @@
             </svg>
         </div>
 
-        <a href="#">Sobre</a>
+        <a href="#sec-about">Sobre</a>
     </header>
 
     <main id="main-ctn">
         <div id="weather-desc">
-            <p>Excepteur deserunt est quis sunt in incididunt ut nulla sunt. Fugiat irure culpa culpa aute aute cupidatat. Ex minim laborum consectetur dolor tempor esse culpa velit in. Veniam consequat consectetur adipisicing aliqua ex quis.</p>
+            <p>Ullamco officia magna dolore laborum duis ipsum tempor reprehenderit tempor ex commodo sint cillum laboris.</p>
             <img src="./assets/undraw_Weather_re_qsmd.png" alt="">
         </div>
+
+        <section id="sec-form-ctn">
+            <form id="form-search-city">
+                <p>Esse proident tempor incididunt irure ullamco ad duis id excepteur nisi elit ipsum incididunt qui.</p>
+                <input type="search" id="inp-name-city" placeholder="Cidade" required>
+                <button id="btn-form-search">
+                    <img src="./assets/search.svg" alt="" id="icon-search">
+                </button>
+            </form>
+        </section>
+
+        <section id="sec-res-search">
+            <div id="res-info">
+                <h2 id="name-city"></h2>
+                <p id="date-time"></p>
+            </div>
+            <ul id="ul-res-search">
+                
+            </ul>
+        </section>
+
+        <section id="sec-about">
+            <img src="./assets/undraw_season_change_f99v.svg" alt="">
+            <h1>Clima&Tempo</h1>
+            <p>Do dolor ea qui eu cillum officia irure pariatur consectetur voluptate duis et voluptate. Tempor ipsum ullamco voluptate aliqua velit tempor aute nisi qui occaecat ullamco. Non ullamco sunt officia officia culpa commodo eiusmod. Sunt et adipisicing id Lorem aute excepteur irure ex veniam. Lorem irure ullamco officia voluptate et eu tempor veniam anim officia cillum sit. Cupidatat magna excepteur enim ullamco velit eu amet ullamco commodo amet tempor velit minim. Magna laborum enim voluptate occaecat minim cillum non id ad ex est qui reprehenderit.</p>
+        </section>
+
+        <footer id="footer">
+            <p>Desenvolvido por <a href="https://github.com/Rangel7y" style="text-decoration: none;" target="_blank">Rangel7y</a></p>
+        </footer>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> -->
 </body>
