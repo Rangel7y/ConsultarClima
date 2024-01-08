@@ -1,19 +1,27 @@
 
-/*  */
+/* WEATHER-DESCRIPTION */
 #weather-desc{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 
-    margin-top: 50px;
+    margin-top: 30px;
 
-    p{
+    h2{
+        width: 300px;
+
         text-align: center;
+
+        font-size: 1.1rem;
+
+        margin: auto 15px;
+
+        color: var(--Navy);
     }
 
     img{
-        width: 400px;
+        width: 375px;
         height: fit-content;
     }
 }
