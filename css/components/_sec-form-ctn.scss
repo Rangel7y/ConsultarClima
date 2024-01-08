@@ -5,20 +5,19 @@
     align-items: center;
     justify-content: center;
 
-    margin-top: 20px;
+    margin-top: 5px;
 
     form{
         display: flex;
         align-items: center;
         flex-direction: column;
 
-        width: 290px;
+        width: 270px;
 
         gap: 10px;
 
-        p{
-            text-align: center;
-            font-size: 1rem;
+        h4{
+            width: 100%;
 
             color: var(--Navy);
         }
@@ -27,7 +26,7 @@
 
 /* INPUT-SEARCH-CITY */
 #inp-name-city{
-    width: 250px;
+    width: 100%;
     height: 45px;
 
     padding: 0.85rem;
@@ -37,14 +36,13 @@
     border: 2px solid var(--SmoothNavy);
     border-radius: 5px;
 
-    background-color: var(--Cold);
+    background-color: var(--Solitude);
 
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 8px 16px;
 
     color: var(--Navy);
 
     font-size: 1rem;
-    font-weight: 600;
 
     &::placeholder{
         color: var(--Navy);
@@ -62,7 +60,7 @@
     align-items: center;
     justify-content: center;
 
-    width: 250px;
+    width: 100%;
     height: 40px;
 
     border: none;
