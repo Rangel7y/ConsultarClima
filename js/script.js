@@ -110,7 +110,6 @@ const getData = async (cityName) => {
                 divMin.appendChild(pMinLabel);
 
                 pResMin = document.createElement('p');
-                pResMin.setAttribute('class', 'res-min');
                 pResMin.setAttribute('style', 'color: var(--YellowTulip);');
                 pResMin.innerText = data['results']['forecast'][`${i}`]['min'];
                 divMin.appendChild(pResMin);
@@ -125,7 +124,6 @@ const getData = async (cityName) => {
                 divMax.appendChild(pMaxLabel);
 
                 pResMax = document.createElement('p');
-                pResMax.setAttribute('class', 'res-max');
                 pResMax.setAttribute('style', 'color: var(--Goldfinger);');
                 pResMax.innerText = data['results']['forecast'][`${i}`]['max'];
                 divMax.appendChild(pResMax);
