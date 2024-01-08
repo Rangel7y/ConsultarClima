@@ -50,61 +50,106 @@ const getData = async (cityName) => {
             nameCity.innerText = APIResponse.data['results']['city'];
 
             for(var i = 0; i < data['results']['forecast'].length; i++){
-                let liRes, divRes1, pResWeekday, pResDateTime, imgResCondition, divRes2, pResMin, pResMax, divResInfoCondition, pResDesc, pResWindSpeedy;
+                let liRes, sectionInfoLeft, divWind, pWindLabel, pWindSpeedy, sectionInfoRight, divDateTime, pResWeekday, pDate, divMinMax, divMin, pMinLabel, pResMin, divMax, pMaxLabel, pResMax, sectionInfoCondition, divInfoDesc, imgResCondition, pResDesc;
 
                 /* Create Li */
                 liRes = document.createElement('li');
                 ulResSearch.appendChild(liRes);
 
-                /* Create Div 1 (Weekday and Datetime) */
-                divRes1 = document.createElement('div');
-                divRes1.setAttribute('class', 'res-weekday-time');
-                liRes.appendChild(divRes1);
+                /* Create Section (Info Left) */
+                sectionInfoLeft = document.createElement('section');
+                sectionInfoLeft.setAttribute('class', 'res-info-side-left');
+                liRes.appendChild(sectionInfoLeft);
+
+                divWind = document.createElement('div');
+                sectionInfoLeft.appendChild(divWind);
+
+                pWindLabel = document.createElement('p');
+                pWindLabel.setAttribute('style', 'font-size: 0.80rem; color: var(--LightGray);');
+                pWindLabel.innerText = "Vento";
+                divWind.appendChild(pWindLabel);
+
+                /* Wind Speed (Text) */
+                pWindSpeedy = document.createElement('p');
+                pWindSpeedy.setAttribute('class', 'res-wind-speedy');
+                pWindSpeedy.setAttribute('style', 'font-size: 0.95rem; color: var(--LightGray);');
+                pWindSpeedy.innerText = data['results']['forecast'][`${i}`]['wind_speedy'];
+                divWind.appendChild(pWindSpeedy);
+
+                /* Create Section (Info Right) */
+                sectionInfoRight = document.createElement('section');
+                sectionInfoRight.setAttribute('class', 'res-info-side-right');
+                liRes.appendChild(sectionInfoRight);
+
+                /* Create Div (Date and Time) */
+                divDateTime = document.createElement('div');
+                divDateTime.setAttribute('class', 'res-date-time');
+                sectionInfoRight.appendChild(divDateTime);
 
                 pResWeekday = document.createElement('p');
                 pResWeekday.setAttribute('class', 'res-weekday');
                 pResWeekday.innerText = data['results']['forecast'][`${i}`]['weekday'];
-                divRes1.appendChild(pResWeekday);
+                divDateTime.appendChild(pResWeekday);
 
-                pResDateTime = document.createElement('p');
-                pResDateTime.innerText = data['results']['forecast'][`${i}`]['date'];
-                divRes1.appendChild(pResDateTime);
+                pDate = document.createElement('p');
+                pDate.innerText = data['results']['forecast'][`${i}`]['date'];
+                divDateTime.appendChild(pDate);
 
-                /* Create Image (Condition) */
+                /* Create Div (Min and Max Temperature) */
+                divMinMax = document.createElement('div');
+                divMinMax.setAttribute('class', 'res-min-max');
+                sectionInfoRight.appendChild(divMinMax);
+
+                /* Create Div (Min) */
+                divMin = document.createElement('div');
+                divMinMax.appendChild(divMin);
+
+                pMinLabel = document.createElement('p');
+                pMinLabel.setAttribute('style', 'font-size: 0.75rem; color: var(--YellowTulip);');
+                pMinLabel.innerText = "Mín";
+                divMin.appendChild(pMinLabel);
+
+                pResMin = document.createElement('p');
+                pResMin.setAttribute('class', 'res-min');
+                pResMin.setAttribute('style', 'color: var(--YellowTulip);');
+                pResMin.innerText = data['results']['forecast'][`${i}`]['min'];
+                divMin.appendChild(pResMin);
+
+                /* Create Div (Max) */
+                divMax = document.createElement('div');
+                divMinMax.appendChild(divMax);
+
+                pMaxLabel = document.createElement('p');
+                pMaxLabel.setAttribute('style', 'font-size: 0.80rem; color: var(--Goldfinger);');
+                pMaxLabel.innerText = "Máx";
+                divMax.appendChild(pMaxLabel);
+
+                pResMax = document.createElement('p');
+                pResMax.setAttribute('class', 'res-max');
+                pResMax.setAttribute('style', 'color: var(--Goldfinger);');
+                pResMax.innerText = data['results']['forecast'][`${i}`]['max'];
+                divMax.appendChild(pResMax);
+
+                /* Create Section (Info Condition) */
+                sectionInfoCondition = document.createElement('section');
+                sectionInfoCondition.setAttribute('class', 'res-info-condition');
+                liRes.appendChild(sectionInfoCondition);
+
+                divInfoDesc = document.createElement('div');
+                divInfoDesc.setAttribute('class', 'res-info-desc');
+                sectionInfoCondition.appendChild(divInfoDesc);
+
+                /* Icon Condition */
                 imgResCondition = document.createElement('img');
                 imgResCondition.setAttribute('src', `https://assets.hgbrasil.com/weather/icons/conditions/${data['results']['forecast'][`${i}`]['condition']}.svg`);
                 imgResCondition.setAttribute('alt', 'Weather Condition');
                 imgResCondition.setAttribute('class', 'res-img-condition');
-                liRes.appendChild(imgResCondition);
-
-                /* Create Div 2 (Min and Max Temperature) */
-                divRes2 = document.createElement('div');
-                liRes.appendChild(divRes2);
-
-                pResMin = document.createElement('p');
-                pResMin.setAttribute('class', 'res-min');
-                pResMin.innerText = data['results']['forecast'][`${i}`]['min'];
-                divRes2.appendChild(pResMin);
-
-                pResMax = document.createElement('p');
-                pResMax.setAttribute('class', 'res-max');
-                pResMax.innerText = data['results']['forecast'][`${i}`]['max'];
-                divRes2.appendChild(pResMax);
-
-                /* Create Div (Info Condition) */
-                divResInfoCondition = document.createElement('div');
-                divResInfoCondition.setAttribute('class', 'res-info-condition');
-                liRes.appendChild(divResInfoCondition);
+                divInfoDesc.appendChild(imgResCondition);
 
                 pResDesc = document.createElement('p');
                 pResDesc.setAttribute('class', 'res-desc');
                 pResDesc.innerText = data['results']['forecast'][`${i}`]['description'];
-                divResInfoCondition.appendChild(pResDesc);
-
-                pResWindSpeedy = document.createElement('p');
-                pResWindSpeedy.setAttribute('class', 'res-wind-speedy');
-                pResWindSpeedy.innerText = data['results']['forecast'][`${i}`]['wind_speedy'];
-                divResInfoCondition.appendChild(pResWindSpeedy);
+                divInfoDesc.appendChild(pResDesc);
             }
 
             iconSearch.style.animation = "";
