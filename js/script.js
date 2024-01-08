@@ -10,87 +10,108 @@ const formSearchCity = document.getElementById("form-search-city");
 /* KEY ID (API) */
 const keyID = '5d15ac2d';
 
+/* Last Request Name City */
+let lastRequestCity = "";
+
 /* Request Api Data */
 const getData = async (cityName) => {
+
+    const btnForm = document.getElementById("btn-form-search");
+    const iconSearch = document.getElementById("icon-search");
+
+    btnForm.setAttribute("disabled", "disabled");
+
+    iconSearch.src = "./assets/arrow-clockwise.svg";
+
+    iconSearch.style.animation = "1s spinIcon linear infinite";
+   
     try {
         const APIResponse = await axios.get(
             `https://api.hgbrasil.com/weather?format=json-cors&key=${keyID}&city_name=${cityName}`, {
                 headers: {
-                "Content-Type": "application/json",
+                    "Content-Type": "application/json",
                 },
             }
         );
-        const data = APIResponse.data;
 
-        const secResSearch = document.getElementById("sec-res-search");
-        const ulResSearch = document.getElementById("ul-res-search");
+        setTimeout(() => {
+            btnForm.removeAttribute("disabled");
 
-        secResSearch.style.display = "flex";
+            const data = APIResponse.data;
 
-        /* Datetime */
-        dateTime.innerText = APIResponse.data['results']['date'];
-        /* City name */
-        nameCity.innerText = APIResponse.data['results']['city'];
+            const secResSearch = document.getElementById("sec-res-search");
+            const ulResSearch = document.getElementById("ul-res-search");
 
-        for(var i = 0; i < data['results']['forecast'].length; i++){
-            let liRes, divRes1, pResWeekday, pResDateTime, imgResCondition, divRes2, pResMin, pResMax, divResInfoCondition, pResDesc, pResWindSpeedy;
+            secResSearch.style.display = "flex";
 
-            /* Create Li */
-            liRes = document.createElement('li');
-            ulResSearch.appendChild(liRes);
+            /* Datetime */
+            dateTime.innerText = APIResponse.data['results']['date'];
+            /* City name */
+            nameCity.innerText = APIResponse.data['results']['city'];
 
-            /* Create Div 1 (Weekday and Datetime) */
-            divRes1 = document.createElement('div');
-            divRes1.setAttribute('class', 'res-weekday-time');
-            liRes.appendChild(divRes1);
+            for(var i = 0; i < data['results']['forecast'].length; i++){
+                let liRes, divRes1, pResWeekday, pResDateTime, imgResCondition, divRes2, pResMin, pResMax, divResInfoCondition, pResDesc, pResWindSpeedy;
 
-            pResWeekday = document.createElement('p');
-            pResWeekday.setAttribute('class', 'res-weekday');
-            pResWeekday.innerText = data['results']['forecast'][`${i}`]['weekday'];
-            divRes1.appendChild(pResWeekday);
+                /* Create Li */
+                liRes = document.createElement('li');
+                ulResSearch.appendChild(liRes);
 
-            pResDateTime = document.createElement('p');
-            pResDateTime.innerText = data['results']['forecast'][`${i}`]['date'];
-            divRes1.appendChild(pResDateTime);
+                /* Create Div 1 (Weekday and Datetime) */
+                divRes1 = document.createElement('div');
+                divRes1.setAttribute('class', 'res-weekday-time');
+                liRes.appendChild(divRes1);
 
-            /* Create Image (Condition) */
-            imgResCondition = document.createElement('img');
-            imgResCondition.setAttribute('src', `https://assets.hgbrasil.com/weather/icons/conditions/${data['results']['forecast'][`${i}`]['condition']}.svg`);
-            imgResCondition.setAttribute('alt', 'Weather Condition');
-            imgResCondition.setAttribute('class', 'res-img-condition');
-            liRes.appendChild(imgResCondition);
+                pResWeekday = document.createElement('p');
+                pResWeekday.setAttribute('class', 'res-weekday');
+                pResWeekday.innerText = data['results']['forecast'][`${i}`]['weekday'];
+                divRes1.appendChild(pResWeekday);
 
-            /* Create Div 2 (Min and Max Temperature) */
-            divRes2 = document.createElement('div');
-            liRes.appendChild(divRes2);
+                pResDateTime = document.createElement('p');
+                pResDateTime.innerText = data['results']['forecast'][`${i}`]['date'];
+                divRes1.appendChild(pResDateTime);
 
-            pResMin = document.createElement('p');
-            pResMin.setAttribute('class', 'res-min');
-            pResMin.innerText = data['results']['forecast'][`${i}`]['min'];
-            divRes2.appendChild(pResMin);
+                /* Create Image (Condition) */
+                imgResCondition = document.createElement('img');
+                imgResCondition.setAttribute('src', `https://assets.hgbrasil.com/weather/icons/conditions/${data['results']['forecast'][`${i}`]['condition']}.svg`);
+                imgResCondition.setAttribute('alt', 'Weather Condition');
+                imgResCondition.setAttribute('class', 'res-img-condition');
+                liRes.appendChild(imgResCondition);
 
-            pResMax = document.createElement('p');
-            pResMax.setAttribute('class', 'res-max');
-            pResMax.innerText = data['results']['forecast'][`${i}`]['max'];
-            divRes2.appendChild(pResMax);
+                /* Create Div 2 (Min and Max Temperature) */
+                divRes2 = document.createElement('div');
+                liRes.appendChild(divRes2);
 
-            /* Create Div (Info Condition) */
-            divResInfoCondition = document.createElement('div');
-            divResInfoCondition.setAttribute('class', 'res-info-condition');
-            liRes.appendChild(divResInfoCondition);
+                pResMin = document.createElement('p');
+                pResMin.setAttribute('class', 'res-min');
+                pResMin.innerText = data['results']['forecast'][`${i}`]['min'];
+                divRes2.appendChild(pResMin);
 
-            pResDesc = document.createElement('p');
-            pResDesc.setAttribute('class', 'res-desc');
-            pResDesc.innerText = data['results']['forecast'][`${i}`]['description'];
-            divResInfoCondition.appendChild(pResDesc);
+                pResMax = document.createElement('p');
+                pResMax.setAttribute('class', 'res-max');
+                pResMax.innerText = data['results']['forecast'][`${i}`]['max'];
+                divRes2.appendChild(pResMax);
 
-            pResWindSpeedy = document.createElement('p');
-            pResWindSpeedy.setAttribute('class', 'res-wind-speedy');
-            pResWindSpeedy.innerText = data['results']['forecast'][`${i}`]['wind_speedy'];
-            divResInfoCondition.appendChild(pResWindSpeedy);
-        }
+                /* Create Div (Info Condition) */
+                divResInfoCondition = document.createElement('div');
+                divResInfoCondition.setAttribute('class', 'res-info-condition');
+                liRes.appendChild(divResInfoCondition);
 
-        console.log(data);
+                pResDesc = document.createElement('p');
+                pResDesc.setAttribute('class', 'res-desc');
+                pResDesc.innerText = data['results']['forecast'][`${i}`]['description'];
+                divResInfoCondition.appendChild(pResDesc);
+
+                pResWindSpeedy = document.createElement('p');
+                pResWindSpeedy.setAttribute('class', 'res-wind-speedy');
+                pResWindSpeedy.innerText = data['results']['forecast'][`${i}`]['wind_speedy'];
+                divResInfoCondition.appendChild(pResWindSpeedy);
+            }
+
+            iconSearch.style.animation = "";
+            iconSearch.src = "./assets/search.svg";
+
+            console.log(data);
+        }, 1000)
     } catch (error) {
         console.log(error);
     }
@@ -102,7 +123,12 @@ formSearchCity.addEventListener("submit", (event) => {
 
     const inpNameCity = document.getElementById("inp-name-city");
 
+    if(inpNameCity.value === lastRequestCity){
+        return false;
+    }
+
     if(inpNameCity.value != 0){
+        lastRequestCity = inpNameCity.value;
         getData(inpNameCity.value);
     }
 });
