@@ -50,19 +50,19 @@ const getData = async (cityName) => {
             nameCity.innerText = APIResponse.data['results']['city'];
 
             for(var i = 0; i < data['results']['forecast'].length; i++){
-                let liRes, sectionInfoLeft, divWind, pWindLabel, pWindSpeedy, sectionInfoRight, divDateTime, pResWeekday, pDate, divMinMax, divMin, pMinLabel, pResMin, divMax, pMaxLabel, pResMax, sectionInfoCondition, divInfoDesc, imgResCondition, pResDesc;
+                let liRes, divInfoLeft, divWind, pWindLabel, pWindSpeedy, divInfoRight, divDateTime, pResWeekday, pDate, divMinMax, divMin, pMinLabel, pResMin, divMax, pMaxLabel, pResMax, divInfoCondition, divInfoDesc, imgResCondition, pResDesc;
 
                 /* Create Li */
                 liRes = document.createElement('li');
                 ulResSearch.appendChild(liRes);
 
-                /* Create Section (Info Left) */
-                sectionInfoLeft = document.createElement('section');
-                sectionInfoLeft.setAttribute('class', 'res-info-side-left');
-                liRes.appendChild(sectionInfoLeft);
+                /* Create Div (Info Left) */
+                divInfoLeft = document.createElement('div');
+                divInfoLeft.setAttribute('class', 'res-info-side-left');
+                liRes.appendChild(divInfoLeft);
 
                 divWind = document.createElement('div');
-                sectionInfoLeft.appendChild(divWind);
+                divInfoLeft.appendChild(divWind);
 
                 pWindLabel = document.createElement('p');
                 pWindLabel.setAttribute('style', 'font-size: 0.80rem; color: var(--LightGray);');
@@ -76,15 +76,15 @@ const getData = async (cityName) => {
                 pWindSpeedy.innerText = data['results']['forecast'][`${i}`]['wind_speedy'];
                 divWind.appendChild(pWindSpeedy);
 
-                /* Create Section (Info Right) */
-                sectionInfoRight = document.createElement('section');
-                sectionInfoRight.setAttribute('class', 'res-info-side-right');
-                liRes.appendChild(sectionInfoRight);
+                /* Create Div (Info Right) */
+                divInfoRight = document.createElement('div');
+                divInfoRight.setAttribute('class', 'res-info-side-right');
+                liRes.appendChild(divInfoRight);
 
                 /* Create Div (Date and Time) */
                 divDateTime = document.createElement('div');
                 divDateTime.setAttribute('class', 'res-date-time');
-                sectionInfoRight.appendChild(divDateTime);
+                divInfoRight.appendChild(divDateTime);
 
                 pResWeekday = document.createElement('p');
                 pResWeekday.setAttribute('class', 'res-weekday');
@@ -98,7 +98,7 @@ const getData = async (cityName) => {
                 /* Create Div (Min and Max Temperature) */
                 divMinMax = document.createElement('div');
                 divMinMax.setAttribute('class', 'res-min-max');
-                sectionInfoRight.appendChild(divMinMax);
+                divInfoRight.appendChild(divMinMax);
 
                 /* Create Div (Min) */
                 divMin = document.createElement('div');
@@ -128,14 +128,14 @@ const getData = async (cityName) => {
                 pResMax.innerText = data['results']['forecast'][`${i}`]['max'];
                 divMax.appendChild(pResMax);
 
-                /* Create Section (Info Condition) */
-                sectionInfoCondition = document.createElement('section');
-                sectionInfoCondition.setAttribute('class', 'res-info-condition');
-                liRes.appendChild(sectionInfoCondition);
+                /* Create Div (Info Condition) */
+                divInfoCondition = document.createElement('div');
+                divInfoCondition.setAttribute('class', 'res-info-condition');
+                liRes.appendChild(divInfoCondition);
 
                 divInfoDesc = document.createElement('div');
                 divInfoDesc.setAttribute('class', 'res-info-desc');
-                sectionInfoCondition.appendChild(divInfoDesc);
+                divInfoCondition.appendChild(divInfoDesc);
 
                 /* Icon Condition */
                 imgResCondition = document.createElement('img');
@@ -152,6 +152,8 @@ const getData = async (cityName) => {
 
             iconSearch.style.animation = "";
             iconSearch.src = "./assets/search.svg";
+
+            document.location.href = "#sec-res-search";
 
             console.log(data);
         }, 1000)
