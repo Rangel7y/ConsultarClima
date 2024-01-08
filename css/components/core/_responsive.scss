@@ -1,0 +1,66 @@
+
+/* 600px */
+@media screen and (min-width: 600px){
+    #weather-desc{
+        h2{
+            width: 480px;
+        }
+        img{
+            width: 580px;
+            height: fit-content;
+        }
+    }
+
+    #sec-form-ctn{
+        form{
+            width: 350px;
+        }
+    }
+
+    #sec-res-search{
+        width: 330px;
+    }
+
+    #sec-about{
+        margin-top: 45px;
+        p{
+            margin: auto 40px;
+        }
+    }
+}
+
+/* 1025px */
+@media screen and (min-width: 1025px){
+    #sec-form-ctn{
+        form{
+            width: 380px;
+        }
+    }
+
+    #sec-res-search{
+        width: 350px;
+    }
+
+    #sec-about{
+        margin-top: 60px;
+        p{
+            margin: auto 120px;
+        }
+    }
+}
+
+/* 1440px */
+@media screen and (min-width: 1440px){
+    #header-ctn{
+        justify-content: center;
+        a{
+            display: none;
+        }
+    }
+
+    #sec-about{
+        p{
+            margin: auto 200px;
+        }
+    }
+}
