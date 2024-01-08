@@ -1,0 +1,27 @@
+
+/* SEC-ABOUT */
+#sec-about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 95px;
+
+    gap: 10px;
+
+    color: var(--Navy);
+
+    img{
+        width: 280px;
+        height: fit-content;
+    }
+
+    p{
+
+
+        text-align: center;
+
+        margin: auto 20px;
+    }
+}
